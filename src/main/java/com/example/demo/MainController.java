@@ -33,11 +33,15 @@ public class MainController {
 
         movies.add(movie);
 
-        movie.setTitle("Robin Hood: Men in Tights");
-        movie.setYear(1993);
-        movie.setDescription("comedic spoof");
 
-        movies.add(movie);
+        Movie movie1 = new Movie();
+
+
+        movie1.setTitle("Robin Hood: Men in Tights");
+        movie1.setYear(1993);
+        movie1.setDescription("comedic spoof");
+
+        movies.add(movie1);
 
         actor.setMovies(movies);
 
