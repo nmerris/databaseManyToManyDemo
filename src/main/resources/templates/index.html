@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments :: headerFragment"></head>
+
+<body>
+
+
+<div class="container">
+    <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-default card card-3">
+            <div class="panel-body">
+                <div class="text-center feedback">
+                    <h2>Welcome to Super Actor Movie Power App</h2>
+                </div>
+
+
+
+                <div th:each="actor : ${actors}">
+                    <h2 th:text="${actor.name}"></h2>
+                    <h5 th:inline="text">AKA: [[${actor.realname}]]</h5>
+                    <ul>
+                        <th:block th:each="movie : ${actor.movies}">
+                            <li th:inline="text"><b>[[${movie.title}]]</b> released in [[${movie.year}]]</li>
+                        </th:block>
+                    </ul>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <!-- search by director -->
+                <!-- pass two request params in the URL, using method=get allows us to use the form input
+                     and append it directly to the URL, then we can get it in the controller in the /search route
+                     name="name" will append a query param as follows: @name=[whatever the user just entered]
+                     the hidden field is used to add query param so that controller knows which table to search from -->
+                <!--<form action="#" th:action="@{~/search}" method="get">-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="hidden" name="by" value="director"/>-->
+                        <!--<input class="form-control" type="text" name="search" placeholder="Search by Director"/>-->
+                    <!--</div>-->
+                    <!--<button class="btn btn-primary bold-input" type="submit">Search</button>-->
+
+                <!--</form>-->
+
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+
+
+                <!-- search by movie -->
+                <!--<form action="#" th:action="@{~/search}" method="get">-->
+
+                <!--<div class="form-group">-->
+                <!--<input type="hidden" name="by" value="movie"/>-->
+                <!--<input class="form-control" type="text" name="search" placeholder="Search by Movie"/>-->
+                <!--</div>-->
+                <!--<button class="btn btn-primary bold-input" type="submit">Search</button>-->
+
+                <!--</form>-->
+
+                <!--<form action="#" th:action="@{~/search}" method="get">-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="hidden" name="by" value="movie"/>-->
+                        <!--<input class="form-control" type="text" th:name="movieSearchObject" placeholder="Search by Movie"/>-->
+                    <!--</div>-->
+                    <!--<button class="btn btn-primary bold-input" type="submit">Search</button>-->
+
+                <!--</form>-->
+
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+
+
+
+                <!--<form action="#" th:action="@{/adddirector}" th:object="${newDirector}" method="post">-->
+                    <!--<h4>Add a director</h4>-->
+
+                    <!--&lt;!&ndash; need this or id is zero every time and keep getting additional records when updating &ndash;&gt;-->
+                    <!--<input type="hidden" th:field="*{id}" />-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="name">Name</label>-->
+                        <!--<input id="name" class="form-control" type="text" th:field="*{name}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="genre">Genre</label>-->
+                        <!--<input id="genre" class="form-control" type="text" th:field="*{genre}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></p>-->
+                    <!--</div>-->
+
+                    <!--<div class="clearfix"></div>-->
+                    <!--<input class="btn btn-primary bold-input" type="submit" value="Submit"/>-->
+                <!--</form>-->
+
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+
+                <!--<form action="#" th:action="@{/addmovie}" th:object="${newMovie}" method="post">-->
+                    <!--<h4>Add a movie</h4>-->
+
+                    <!--&lt;!&ndash; need this or id is zero every time and keep getting additional records when updating &ndash;&gt;-->
+                    <!--<input type="hidden" th:field="*{id}" />-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="title">Title</label>-->
+                        <!--<input id="title" class="form-control" type="text" th:field="*{title}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="year">Year</label>-->
+                        <!--<input id="year" class="form-control" type="text" th:field="*{year}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></p>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="description">Description</label>-->
+                        <!--<input id="description" class="form-control" type="text" th:field="*{description}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="section-heading" for="director">Director</label>-->
+                        <!--<input id="director" class="form-control" type="text" th:field="*{directorFormInput}"/>-->
+                        <!--<p class="alert alert-danger" th:if="${#fields.hasErrors('directorFormInput')}" th:errors="*{directorFormInput}"></p>-->
+                    <!--</div>-->
+
+                    <!--<div class="clearfix"></div>-->
+                    <!--<input class="btn btn-primary bold-input" type="submit" value="Submit"/>-->
+                <!--</form>-->
+
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<br/>-->
+
+                <!-- list of directors -->
+                <!--<div class="table-responsive">-->
+                    <!--<table class="table table-striped">-->
+                        <!--<caption><h3><b>List of Directors</b></h3></caption>-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>Name</th>-->
+                            <!--<th>Famous for Genre</th>-->
+                            <!--&lt;!&ndash;<th>Movies</th>&ndash;&gt;-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<th:block th:each="item:${directors}">-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><p th:text="${item.name}"></p></td>&ndash;&gt;-->
+                                <!--<td><a th:href="@{|/viewdirectordetails/${item.id}|}" th:text="${item.name}"></a></td>-->
+
+                                <!--<td><p th:text="${item.genre}"></p></td>-->
+                                <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<th:block th:each="movie : ${item.movies}">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li th:inline="text">[[${movie.title}]]</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</th:block>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</td>&ndash;&gt;-->
+
+                            <!--</tr>-->
+                        <!--</th:block>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+
+
+                <!-- list of movies -->
+                <!--<div class="table-responsive">-->
+                    <!--<table class="table table-striped">-->
+                        <!--<caption><h3><b>List of Movies</b></h3></caption>-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>Title</th>-->
+                            <!--&lt;!&ndash;<th>Year</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th>Description</th>&ndash;&gt;-->
+                            <!--<th>Director</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<th:block th:each="item:${movies}">-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><p th:text="${item.title}"></p></td>&ndash;&gt;-->
+                                <!--<td><a th:href="@{|/viewmoviedetails/${item.id}|}" th:text="${item.title}"></a></td>-->
+
+                                <!--&lt;!&ndash;<td><p th:text="${item.year}"></p></td>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<td><p th:text="${item.description}"></p></td>&ndash;&gt;-->
+
+                                <!--&lt;!&ndash; [object].director will use Director.toString, which i overrode in Director to return the directors name &ndash;&gt;-->
+                                <!--<td><p th:text="${item.director}"></p></td>-->
+                            <!--</tr>-->
+                        <!--</th:block-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
